@@ -1,9 +1,10 @@
 from dataclasses import dataclass
 
-from superpathlib import Path
-
 
 @dataclass
 class Config:
-    output_path: Path | None = None
-    secrets_path: Path | None = None
+    app_name: str | None = None
+    hostname: str | None = None
+    frontend_repository: str | None = None
+    backend_port: int = 13000
+    session_name: str | None = None
