@@ -1,4 +1,4 @@
-from python_package_template import main
+from webapp_starter import main
 
 
 def test_main() -> None:
