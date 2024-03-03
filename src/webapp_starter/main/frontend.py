@@ -24,12 +24,17 @@ class Frontend:
     @classmethod
     def check_content(cls) -> None:
         frontend = Frontend()
-        if context.options.update_frontend or not frontend.content_path.exists():
+        if context.options.update_frontend or frontend.content_path.is_empty():
             frontend.update_content()
 
     def update_content(self) -> None:
         frontend_release = FrontendRelease.load()
-        if self.content_path.mtime < frontend_release.mtime:
+        if self.content_path.is_empty():
+            mtime = 0.0
+        else:
+            files = self.content_path.iterdir()
+            mtime = next(iter(files)).mtime
+        if mtime < frontend_release.mtime:
             self.download_content(frontend_release)
 
     def download_content(self, frontend_release: FrontendRelease) -> None:

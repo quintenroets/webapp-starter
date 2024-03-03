@@ -7,7 +7,7 @@ from webapp_starter.context import Context
 from webapp_starter.main.main import Frontend, main
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def frontend_opening_context(test_context: Context) -> Iterator[Context]:
     test_context.options.headless = False
     yield test_context
@@ -32,3 +32,11 @@ def test_frontend_opening(
 ) -> None:
     main()
     open_url.assert_called_once()
+
+
+def test_frontend_update_with_existing_path(frontend_opening_context: Context) -> None:
+    frontend = Frontend()
+    frontend.create_content_path()
+    path = frontend.content_path / "index.html"
+    path.touch(mtime=0.0)
+    frontend.update_content()
