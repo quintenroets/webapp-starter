@@ -20,7 +20,8 @@ class Context(Context_[Options, Config, None]):
 
     @cached_property
     def frontend_repository(self) -> str:
-        return context.config.frontend_repository or f"quintenroets/{self.options.name}"
+        repository = context.config.frontend_repository
+        return repository or f"quintenroets/{self.options.name}-frontend"
 
     @cached_property
     def backend_command(self) -> str:
