@@ -2,10 +2,11 @@ from functools import cached_property
 
 from package_utils.context import Context as Context_
 
-from ..models import Config, Options
+from ..client import Client
+from ..models import Config, Options, Secrets
 
 
-class Context(Context_[Options, Config, None]):
+class Context(Context_[Options, Config, Secrets]):
     @cached_property
     def app_name(self) -> str:
         return self.config.app_name or f"{self.options.name}.server:app"
@@ -29,5 +30,9 @@ class Context(Context_[Options, Config, None]):
         command_parts = "start-backend", "--name", context.options.name, debug_option
         return " ".join(command_parts)
 
+    @cached_property
+    def client(self) -> Client:
+        return Client(self.frontend_repository, self.secrets.github_token)
 
-context = Context(Options, Config)
+
+context = Context(Options, Config, Secrets)
