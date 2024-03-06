@@ -5,7 +5,6 @@ import zipfile
 from dataclasses import dataclass, field
 
 import cli
-import requests
 from superpathlib import Path
 
 from ..context import context
@@ -28,7 +27,7 @@ class Frontend:
             frontend.update_content()
 
     def update_content(self) -> None:
-        frontend_release = FrontendRelease.load()
+        frontend_release = FrontendRelease.fetch()
         if self.content_path.is_empty():
             mtime = 0.0
         else:
@@ -40,12 +39,14 @@ class Frontend:
     def download_content(self, frontend_release: FrontendRelease) -> None:
         if not self.content_path.exists():
             self.create_content_path()
-        content = requests.get(frontend_release.browser_download_url).content
+        self.save_content(frontend_release.fetched_content)
+        self.content_path.mtime = frontend_release.mtime
+
+    def save_content(self, content: bytes) -> None:
         content_io = io.BytesIO(content)
         zip_file = zipfile.ZipFile(content_io)
         with zip_file:
             zip_file.extractall(self.content_path)
-        self.content_path.mtime = frontend_release.mtime
 
     def create_content_path(self) -> None:
         try:
