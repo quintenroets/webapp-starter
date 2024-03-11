@@ -1,30 +1,26 @@
 [project]
 name = "webapp-starter"
-version = "0.1.4"
+version = "0.1.0"
 description = "Template for Python package published on PyPI"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "package-utils[context] >=0.6.2, <1",
-    "quinten-cli >=1.1.16, <2",
-    "uvicorn >=0.23.2, <1",
+    "package-utils[context] >=0.6.1, <1",
 ]
 
 [project.optional-dependencies]
 dev = [
     "package-dev-tools >=0.5.11, <1",
     "package-dev-utils >=0.1.6, <1",
-    "types-requests >=2.31.0.10, <3",
 ]
 
 [project.urls]
 "Source Code" = "https://github.com/quintenroets/webapp-starter"
 
 [project.scripts]
-start-backend = "webapp_starter.cli.backend:entry_point"
-start-webapp = "webapp_starter.cli.webapp:entry_point"
+webapp-starter = "webapp_starter.cli:entry_point"
 
 [build-system]
 requires = ["setuptools"]
