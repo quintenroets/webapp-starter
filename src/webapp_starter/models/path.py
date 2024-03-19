@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import typing
 from typing import TypeVar
 
@@ -17,4 +19,10 @@ class Path(superpathlib.Path):
     @classproperty
     def assets(cls: type[T]) -> T:
         path = cls.script_assets / cls.source_root.name
+        return typing.cast(T, path)
+
+    @classmethod
+    @classproperty
+    def config(cls: type[T]) -> T:
+        path = cls.assets / "config" / "config.yaml"
         return typing.cast(T, path)
