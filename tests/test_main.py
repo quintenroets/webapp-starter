@@ -25,7 +25,7 @@ def test_backend_start(_: MagicMock, test_context: Context) -> None:
     cli.run("tmux kill-session -t", test_context.session_name)
 
 
-@patch("cli.urlopen")
+@patch("cli.open_urls")
 @patch("webapp_starter.main.main.start_backend")
 def test_frontend_opening(
     open_url: MagicMock, _: MagicMock, frontend_opening_context: Context

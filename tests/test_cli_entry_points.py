@@ -7,7 +7,7 @@ from webapp_starter.context import Context
 
 @cli_args("--name", "test")
 @patch("cli.run_commands")
-@patch("cli.urlopen")
+@patch("cli.open_urls")
 def test_webapp_entry_point(_: MagicMock, __: MagicMock, test_context: Context) -> None:
     webapp.entry_point()
 

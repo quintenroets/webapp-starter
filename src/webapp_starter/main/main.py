@@ -15,7 +15,7 @@ def main() -> None:
 def open_frontend() -> None:
     Frontend.check_content()
     if not context.options.headless:
-        cli.urlopen(context.hostname)
+        cli.open_urls(context.hostname)
 
 
 def start_backend() -> None:
