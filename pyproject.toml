@@ -1,6 +1,6 @@
 [project]
 name = "webapp-starter"
-version = "0.1.4"
+version = "0.1.5"
 description = "Template for Python package published on PyPI"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = {text = "MIT"}
@@ -8,7 +8,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "package-utils[context] >=0.6.2, <1",
-    "quinten-cli >=1.1.16, <2",
+    "powercli >=0.1.1, <1",
     "uvicorn >=0.23.2, <1",
 ]
 
