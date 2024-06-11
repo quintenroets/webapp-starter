@@ -1,5 +1,4 @@
-import typing
-from typing import TypeVar
+from typing import TypeVar, cast
 
 import superpathlib
 from simple_classproperty import classproperty
@@ -17,4 +16,10 @@ class Path(superpathlib.Path):
     @classproperty
     def assets(cls: type[T]) -> T:
         path = cls.script_assets / cls.source_root.name
-        return typing.cast(T, path)
+        return cast(T, path)
+
+    @classmethod
+    @classproperty
+    def config(cls: type[T]) -> T:
+        path = cls.assets / "config" / "config.yaml"
+        return cast(T, path)
