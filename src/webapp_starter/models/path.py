@@ -17,9 +17,3 @@ class Path(superpathlib.Path):
     def assets(cls: type[T]) -> T:
         path = cls.script_assets / cls.source_root.name
         return cast(T, path)
-
-    @classmethod
-    @classproperty
-    def config(cls: type[T]) -> T:
-        path = cls.assets / "config" / "config.yaml"
-        return cast(T, path)
