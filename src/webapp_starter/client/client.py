@@ -31,7 +31,9 @@ class Client:
         return self.fetch(url, headers=headers).content
 
     def fetch(
-        self, url: str, headers: dict[str, str] | None = None
+        self,
+        url: str,
+        headers: dict[str, str] | None = None,
     ) -> requests.Response:
         full_url = self.base_url + url
         return self.session.get(full_url, headers=headers)

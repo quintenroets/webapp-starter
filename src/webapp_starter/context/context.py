@@ -2,8 +2,8 @@ from functools import cached_property
 
 from package_utils.context import Context as Context_
 
-from ..client import Client
-from ..models import Config, Options, Secrets
+from webapp_starter.client import Client
+from webapp_starter.models import Config, Options, Secrets
 
 
 class Context(Context_[Options, Config, Secrets]):

@@ -3,8 +3,8 @@ import typing
 
 import uvicorn
 
-from ..context import context
-from ..models import Path
+from webapp_starter.context import context
+from webapp_starter.models import Path
 
 
 def main() -> None:
