@@ -7,7 +7,8 @@ from dataclasses import dataclass, field
 import cli
 from superpathlib import Path
 
-from ..context import context
+from webapp_starter.context import context
+
 from .frontend_release import FrontendRelease
 
 
