@@ -3,11 +3,12 @@ from unittest.mock import MagicMock, patch
 
 import cli
 import pytest
+
 from webapp_starter.context import Context
 from webapp_starter.main.main import Frontend, main
 
 
-@pytest.fixture()
+@pytest.fixture
 def frontend_opening_context(test_context: Context) -> Iterator[Context]:
     test_context.options.headless = False
     yield test_context

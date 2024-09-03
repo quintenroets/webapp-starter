@@ -2,6 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from package_dev_utils.tests.args import cli_args
+
 from webapp_starter.cli import backend, webapp
 
 
