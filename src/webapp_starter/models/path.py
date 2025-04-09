@@ -17,9 +17,6 @@ class Path(superpathlib.Path):
     @classproperty
     def assets(cls) -> Self:
         path = cls.script_assets / cls.source_root.name
-<<<<<<< HEAD
-        return cast(T, path)
-=======
         return cast("Self", path)
 
     @classmethod
@@ -27,4 +24,3 @@ class Path(superpathlib.Path):
     def config(cls) -> Self:
         path = cls.assets / "config" / "config.yaml"
         return cast("Self", path)
->>>>>>> template
