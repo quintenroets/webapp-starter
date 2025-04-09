@@ -10,7 +10,7 @@ from webapp_starter.models import Path
 def main() -> None:
     if context.options.debug:  # pragma: nocover
         webapp_module = importlib.import_module(context.options.name)
-        path_str = typing.cast(str, webapp_module.__file__)
+        path_str = typing.cast("str", webapp_module.__file__)
         webapp_source_root = Path(path_str).parent
         reload_dirs = str(webapp_source_root)
     else:

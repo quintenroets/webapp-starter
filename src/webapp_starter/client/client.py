@@ -24,7 +24,7 @@ class Client:
     def fetch_json(self, url: str) -> dict[str, Any]:
         headers = {"Accept": "application/json"}
         result = self.fetch(url, headers=headers).json()
-        return typing.cast(dict[str, Any], result)
+        return typing.cast("dict[str, Any]", result)
 
     def fetch_content(self, url: str) -> bytes:
         headers = {"Accept": "application/octet-stream"}
