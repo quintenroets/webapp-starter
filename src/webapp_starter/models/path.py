@@ -18,9 +18,3 @@ class Path(superpathlib.Path):
     def assets(cls) -> Self:
         path = cls.script_assets / cls.source_root.name
         return cast("Self", path)
-
-    @classmethod
-    @classproperty
-    def config(cls) -> Self:
-        path = cls.assets / "config" / "config.yaml"
-        return cast("Self", path)
