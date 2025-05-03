@@ -14,12 +14,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-<<<<<<< HEAD
     "python-dotenv >=1.0.1, <2",  # optional dependency of uvicorn -> needed for mypy
-    "package-dev-tools >=0.5.11, <1",
-=======
     "package-dev-tools >=0.7.0, <1",
->>>>>>> template
     "package-dev-utils >=0.1.6, <1",
     "types-requests >=2.31.0.10, <3",
 ]
