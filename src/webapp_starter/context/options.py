@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .path import Path
+from webapp_starter.models.path import Path
 
 
 @dataclass
