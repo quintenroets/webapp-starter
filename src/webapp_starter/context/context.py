@@ -1,9 +1,15 @@
 from functools import cached_property
 
+<<<<<<< HEAD
 from package_utils.context import Context as Context_
 
 from webapp_starter.client import Client
 from webapp_starter.models import Config, Options, Secrets
+=======
+from .config import Config
+from .options import Options
+from .secrets_ import Secrets
+>>>>>>> template
 
 
 class Context(Context_[Options, Config, Secrets]):

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from dataclasses import dataclass
 
 
@@ -8,3 +9,5 @@ class Config:
     frontend_repository: str | None = None
     backend_port: int = 13000
     session_name: str | None = None
+=======
+>>>>>>> template

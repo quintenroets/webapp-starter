@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from dataclasses import dataclass
 
 from .path import Path
@@ -16,3 +17,5 @@ class Options:
     def __post_init__(self) -> None:
         if self.config_path is None:
             self.config_path = Path.assets / self.name / "config" / "config.yaml"
+=======
+>>>>>>> template
