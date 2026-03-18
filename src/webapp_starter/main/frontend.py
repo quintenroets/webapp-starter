@@ -1,5 +1,6 @@
 import io
 import os
+import sys
 import urllib.parse
 import zipfile
 from dataclasses import dataclass, field
@@ -14,7 +15,8 @@ from .frontend_release import FrontendRelease
 
 def load_dist_path() -> Path:
     domain_name = urllib.parse.urlparse(context.hostname).netloc
-    return Path("/") / "var" / "www" / domain_name
+    root = Path("/opt/homebrew") if sys.platform == "darwin" else Path("/")
+    return root / "var" / "www" / domain_name
 
 
 @dataclass
@@ -55,4 +57,5 @@ class Frontend:
         except OSError:  # pragma: nocover (on GitHub action)
             username = "runner"  # pragma: nocover
         cli.run("mkdir", self.content_path, root=True)
-        cli.run(f"chown -R {username}:{username}", self.content_path, root=True)
+        ownership = username if sys.platform == "darwin" else f"{username}:{username}"
+        cli.run(f"chown -R {ownership}", self.content_path, root=True)
