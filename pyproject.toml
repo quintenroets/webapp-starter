@@ -1,6 +1,6 @@
 [project]
 name = "webapp-starter"
-version = "0.1.5"
+version = "0.1.7"
 description = "Template for Python package published on PyPI"
 authors = [{name = "Quinten Roets", email = "qdr2104@columbia.edu"}]
 license = "MIT"
@@ -54,7 +54,12 @@ fix = true
 select = ["ALL"]
 ignore = [
     "ANN401",   # annotated with Any
-    "D",        # docstrings
+    "D1",       # missing docstrings
+    "D200",     # one-line docstring
+    "D203",     # conflicts with D211
+    "D205",     # blank line between summary and description
+    "D212",     # conflicts with D213
+    "D401",     # imperative first line
     "G004",     # logging f-string
 ]
 
