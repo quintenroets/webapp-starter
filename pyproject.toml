@@ -7,15 +7,24 @@ license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+<<<<<<< HEAD
     "package-utils[context] >=0.6.2, <1",
     "powercli >=0.2.0, <1",
     "uvicorn >=0.23.2, <1",
+=======
+    "package-utils[context] >=0.8.3, <1",
+    "powercli >=0.4.0, <1",
+>>>>>>> template
 ]
 
 [project.optional-dependencies]
 dev = [
+<<<<<<< HEAD
     "python-dotenv >=1.0.1, <2",  # optional dependency of uvicorn -> needed for mypy
     "package-dev-tools >=0.8.0, <1",
+=======
+    "package-dev-tools >=0.8.1, <1",
+>>>>>>> template
     "package-dev-utils >=0.1.6, <1",
     "types-requests >=2.31.0.10, <3",
 ]
