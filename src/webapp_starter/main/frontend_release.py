@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import dacite
 from package_utils.dataclasses.mixins import SerializationMixin
@@ -23,7 +23,7 @@ class FrontendRelease(SerializationMixin):
     @property
     def mtime(self) -> float:
         format_str = "%Y-%m-%dT%H:%M:%SZ"
-        date = datetime.strptime(self.updated_at, format_str).astimezone(timezone.utc)
+        date = datetime.strptime(self.updated_at, format_str).astimezone(UTC)
         return date.timestamp()
 
     @property
