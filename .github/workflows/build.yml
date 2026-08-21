@@ -3,14 +3,12 @@ name: Build
 on:
   push:
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
 jobs:
   validate:
     name: Validate
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Validate
         id: validate
@@ -29,6 +27,8 @@ jobs:
   run-tests:
     name: Run tests
     needs: extract-python-versions
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
         os: [ubuntu-latest]
